@@ -13,4 +13,3 @@ urlpatterns = [
     path('pessoas/<int:pk>/', PessoaDetailView.as_view(), name='detalhe_pessoa'),
     path('deletar_pessoas/<int:pk>/', PessoaDeleteView.as_view(), name='deletar_pessoa'),
 ]
-#teste
