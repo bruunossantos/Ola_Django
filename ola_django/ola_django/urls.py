@@ -17,12 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.http import HttpResponse
+from accounts.views import register_view, login_view, logout_view
 
 def ola_django(request):
     return HttpResponse('Ola Mundo, sou o Django!')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('ola_django/', ola_django),
+    path('ola_django/', ola_django, name='ola_django'),
     path('primeiro_app/', include('primeiro_app.urls')),
+    path('register/', register_view, name='register'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
 ]

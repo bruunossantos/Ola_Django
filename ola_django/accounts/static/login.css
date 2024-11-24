@@ -1,0 +1,123 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh; /* Altura da tela inteira */
+}
+
+/* Seção de 2/3 da tela */
+.image-section {
+    flex: 2; /* Ocupa 2/3 do espaço */
+    background: url('/static/images/background.jpg') no-repeat center center/cover; /* Imagem de fundo */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #6a0dad; /* Cor de fallback caso a imagem não carregue */
+}
+
+/* Seção de 1/3 da tela */
+.form-section {
+    flex: 1; /* Ocupa 1/3 do espaço */
+    background-color: #ffffff; /* Fundo branco */
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 20px; /* Aumenta o padding para um melhor espaçamento */
+}
+
+
+/* Estilo do formulário */
+.form-pessoa {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Maior espaçamento entre os campos */
+    width: 70%; /* Garante que os campos ocupem toda a largura disponível */
+}
+
+/* Estilizando os campos de input (senha) */
+.form-pessoa input {
+    padding: 14px; /* Maior padding para tornar os campos mais largos */
+    font-size: 16px;
+    border-radius: 30px; /* Mais arredondado */
+    border: 1px solid #ddd;
+    width: 100%; /* Garante que o campo ocupe toda a largura disponível */
+    box-sizing: border-box; /* Garante que o padding não afete a largura */
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease; /* Transição suave no foco */
+}
+
+/* Estilizando o campo de username especificamente */
+#id_username {
+    padding: 14px; /* Maior padding para tornar o campo mais largo */
+    font-size: 16px;
+    border-radius: 30px; /* Arredondado */
+    border: 1px solid #ddd;
+    width: 100%; /* Garante que o campo ocupe toda a largura disponível */
+    box-sizing: border-box; /* Garante que o padding não afete a largura */
+    background-color: #f9f9f9;
+}
+
+
+/* Estilizando o botão */
+.form-pessoa button {
+    background-color: #6a0dad;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Garante que o botão ocupe toda a largura do formulário */
+}
+
+.form-pessoa button:hover {
+    background-color: #340258;
+}
+
+/* Estilo para as mensagens de erro */
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: left; /* Alinha os erros à esquerda */
+}
+
+/* Personalizando o label dos campos */
+.form-pessoa label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #585858; 
+    margin-bottom: 2px; 
+}
+
+.form-section h2 {
+    margin-bottom: 20px;
+    color: #6a0dad; /* Cor roxa para o título */
+    text-align: center; /* Alinha o título ao centro */
+    font-size: 50px; /* Tamanho maior */
+    font-weight: 800; /* Negrito */
+}
+.form-pessoa a {
+    display: inline-block; /* Faz com que o link seja tratado como um bloco, permitindo centralização */
+    margin-top: 20px; /* Espaçamento acima do link */
+    color: #6a0dad; /* Cor roxa */
+    text-align: center; /* Centraliza o texto dentro do link */
+    font-size: 16px; /* Tamanho de fonte */
+    text-decoration: none; /* Remove o sublinhado do link */
+}
+
+/* Adicionando um efeito ao passar o mouse */
+.form-pessoa a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}
