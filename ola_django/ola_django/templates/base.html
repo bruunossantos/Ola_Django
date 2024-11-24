@@ -7,7 +7,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'cadastrar_pessoa.css' %}">  <!-- Ajuste o caminho do CSS se necessário -->
     <style>
-
+        /* Estilos da sidebar */
         .sidebar {
             width: 20%; /* Ajuste a largura conforme necessário */
             height: 100vh; /* Faz o menu ocupar toda a altura da tela */
@@ -18,31 +18,28 @@
             left: 0; /* Fixa o menu à esquerda da página */
             color: white; /* Cor do texto */
             box-sizing: border-box;
+            text-align: center; /* Centraliza o conteúdo do menu */
         }
-
+    
         .sidebar ul {
             list-style-type: none; /* Remove os marcadores da lista */
             padding: 0; /* Remove o padding padrão */
+            margin-top: 20px; /* Espaço acima do menu */
         }
-
-
-        .sidebar a {
+    
+        /* Estilos para links do menu */
+        .menu-container a {
             color: white; /* Cor do texto dos links */
             text-decoration: none; /* Remove o sublinhado dos links */
             display: block; /* Faz o link ocupar toda a largura do item */
             padding: 10px; /* Espaçamento interno dos links */
         }
-
-        .sidebar a:hover {
-            background-color: #4b047a;
-
+    
+        /* Aplicar o hover roxo somente nos links dentro de .menu-container */
+        .menu-container a:hover {
+            background-color: #4b047a; /* Cor de hover roxa */
         }
-
-        .sidebar h2 {
-            text-align: center; /* Centraliza o texto */
-            margin-bottom: 20px; /* Espaçamento abaixo do título */
-        }
-
+    
         .sidebar h2::after {
             content: ""; /* Cria uma linha */
             display: block; /* Faz a linha ocupar todo o espaço disponível */
@@ -51,26 +48,99 @@
             background-color: white; /* Cor da linha */
             margin-top: 10px; /* Espaçamento acima da linha */
         }
-
-
+    
+        /* Estilo para a foto de perfil */
+        .sidebar .profile-img {
+            width: 150px; /* Tamanho da imagem */
+            height: 150px; /* Tamanho da imagem */
+            border-radius: 100%; /* Torna a imagem circular */
+            object-fit: cover; /* Faz a imagem se ajustar dentro do círculo */
+            margin: 0 auto 10px auto; /* Centraliza a imagem e adiciona espaço abaixo */
+        }
+    
+        /* Estilo para a saudação */
+        .sidebar p {
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+    
+        /* Estilo para os botões "Add Receita" e "Add Despesa" */
+        .receita-button, .despesas-button {
+            padding: 8px;
+            font-size: 14px; /* Tamanho da fonte ajustado */
+            border-top: none;
+            border-radius: 80px;
+            margin: 5px;
+            cursor: pointer;
+            text-decoration: none; /* Garante que não tenha sublinhado */
+        }
+    
+        .receita-button {
+            background-color: #41AF3B; /* Cor verde */
+            color: white;
+        }
+    
+        .despesas-button {
+            background-color: #F31C1C; /* Cor vermelha */
+            color: white;
+        }
+    
+        /* Hovers específicos para os botões */
+        .receita-button:hover {
+            background-color: #0b690c; /* Tom de verde mais escuro */
+        }
+    
+        .despesas-button:hover {
+            background-color: #ac0d0d; /* Tom de vermelho mais escuro */
+        }
+    
+        /* Restante da formatação dos botões */
+        .buttons-container {
+            display: flex; /* Exibe os botões lado a lado */
+            justify-content: center; /* Centraliza os botões */
+            margin-top: 20px;
+        }
+    
         .main-content {
             width: 80%; /* Largura do conteúdo principal */
             padding: 20px;
             margin-left: 20%; /* Para compensar a largura do menu lateral */
         }
+    
+        /* Contêiner para alinhar os botões do menu à esquerda */
+        .menu-container {
+            text-align: left; /* Alinha os itens à esquerda */
+        }
     </style>
+    
+    
 </head>
 <body>
     <nav class="sidebar">
-        <h2>Menu</h2>
-        <ul>
-            <li><a href="{% url 'lista_pessoas' %}">Lista de Pessoas</a></li>
-            <li><a href="{% url 'cadastrar_pessoa' %}">Cadastrar Pessoa</a></li>
-            <li><a href="{% url 'logout' %}">Sair</a></li>
-            <!-- Adicione mais itens de menu conforme necessário -->
-        </ul>
+        {% if user.is_authenticated %}
+            <!-- Adiciona a foto de perfil -->
+            <img src="/media/foto-de-perfil.png" class="profile-img" alt="Foto de Perfil">
+            <p>Olá, <strong>{{ user.username }}</strong></p>
+
+            <!-- Botões "Add Receita" e "Add Despesa" centralizados -->
+            <div class="buttons-container">
+                <a class="receita-button" href="">Add Receita</a>
+                <a class="despesas-button" href="">Add Despesa</a>
+            </div>
+        {% endif %}
+
+        <h2></h2>
+
+        <!-- Div para alinhar os botões do menu à esquerda -->
+        <div class="menu-container">
+            <ul>
+                <li><a href="{% url 'lista_pessoas' %}">Lista de Pessoas</a></li>
+                <li><a href="{% url 'cadastrar_pessoa' %}">Cadastrar Pessoa</a></li>
+                <li><a href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+        </div>
     </nav>
-    
+
     <main class="main-content">
         {% block content %}
         <!-- Conteúdo da página aqui -->
