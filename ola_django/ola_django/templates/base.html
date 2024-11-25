@@ -124,8 +124,8 @@
 
             <!-- Botões "Add Receita" e "Add Despesa" centralizados -->
             <div class="buttons-container">
-                <a class="receita-button" href="">Add Receita</a>
-                <a class="despesas-button" href="">Add Despesa</a>
+                <a href="{% url 'adicionar_receita' %}" class="receita-button">Add Receita</a>
+                <a href="{% url 'adicionar_despesa' %}" class="despesas-button">Add Despesa</a>
             </div>
         {% endif %}
 
@@ -134,6 +134,7 @@
         <!-- Div para alinhar os botões do menu à esquerda -->
         <div class="menu-container">
             <ul>
+                <li><a href="{% url 'home' %}">Ínicio</a></li>
                 <li><a href="{% url 'lista_pessoas' %}">Lista de Pessoas</a></li>
                 <li><a href="{% url 'cadastrar_pessoa' %}">Cadastrar Pessoa</a></li>
                 <li><a href="{% url 'listar_selos' %}">Selos e Recompensas</a></li>

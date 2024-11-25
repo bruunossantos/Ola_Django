@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Selo,Transacao
 from .forms import SeloForm,TransacaoForm
 
+
 def listar_selos(request):
     selos = Selo.objects.filter(usuarios=request.user)  
     return render(request, 'listar_selos.html', {'selos': selos})

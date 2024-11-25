@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resumo Financeiro</title>
+
+    <style>
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Três blocos lado a lado */
+    gap: 20px; /* Espaçamento entre os blocos */
+    margin-bottom: 10px; /* Espaço entre os blocos e o restante do conteúdo */
+}
+
+.info-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    display: flex; /* Ativa o Flexbox */
+    align-items: center; /* Centraliza verticalmente os elementos dentro da info-card */
+    justify-content: flex-start; /* Mantém a imagem e o texto alinhados à esquerda */
+    padding: 10px; /* Adiciona espaçamento interno */
+    padding-top: 8px;
+    padding-bottom: 4px;
+}
+
+.image-icon-card {
+    flex: 0 0 auto; /* Garante que o ícone não expanda ou reduza */
+    margin-right: 15px; /* Espaçamento entre a imagem e o texto */
+}
+
+.image-icon-card img {
+    width: 70px; /* Define um tamanho fixo para a imagem */
+    height: 70px; /* Define um tamanho fixo para a imagem */
+    border-radius: 15%; /* Torna a imagem redonda */
+}
+
+.valuations {
+    flex: 1; /* Faz com que o texto ocupe o restante do espaço */
+    text-align: left; /* Alinha o texto à esquerda */
+    display: flex; /* Ativa o flexbox */
+    flex-direction: column; /* Garante que os itens sejam organizados verticalmente */
+    justify-content: center; /* Centraliza verticalmente */
+
+}
+
+.valuations h3 {
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 5px; /* Espaçamento entre título e valor */
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.valuations p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+    </style>
+
+</head>
+<body>
+
+    <div class="info-container">
+
+        <div class="info-card">
+
+            <div class="image-icon-card">
+                <img src="/media/saldo-atual.jpg" class="profile-img" alt="Foto de Perfil">
+            </div>
+
+            <div class="valuations">
+                <h3>Saldo Atual</h3>
+                <p>R$ {{ saldo }}</p>
+            </div>
+        </div>
+
+        <div class="info-card">
+
+            <div class="image-icon-card">
+                <img src="/media/receita-total.jpg" class="profile-img" alt="Foto de Perfil">
+            </div>
+
+            <div class="valuations">
+                <h3>Total de Receitas</h3>
+                <p>R$ {{ total_receitas }}</p>
+            </div>
+
+        </div>
+
+        <div class="info-card">
+            <div class="image-icon-card">
+                <img src="/media/despesas-total.jpg" class="profile-img" alt="Foto de Perfil">
+            </div>
+            <div class="valuations">
+                <h3>Total de Despesas</h3>
+                <p>R$ {{ total_despesas }}</p>
+            </div>
+        </div>
+
+    </div>
+ 
+</body>
+</html>
+
+{% endblock content %}

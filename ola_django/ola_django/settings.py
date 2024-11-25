@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'primeiro_app',
     'accounts',
     'gamificacao_app',
+    'orcamento_app',
 ]
 
 MIDDLEWARE = [

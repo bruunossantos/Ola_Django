@@ -32,6 +32,7 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('gamificacao/', include ('gamificacao_app.urls')),
+    path('orcamento/', include('orcamento_app.urls')),
 ] 
 
 if settings.DEBUG:

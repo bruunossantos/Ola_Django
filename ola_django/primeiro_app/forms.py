@@ -16,4 +16,4 @@ class PessoaUpdateForm(forms.ModelForm):
 class FormDeletePessoa(forms.ModelForm):
     class Meta:
         model = Pessoa
-        fields = [] #Nenhum campo
+        fields = [] #Nenhum campo"
