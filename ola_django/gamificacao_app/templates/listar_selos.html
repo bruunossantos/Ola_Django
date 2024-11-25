@@ -7,85 +7,127 @@
     <title>Selos Recebidos</title>
     <style>
       * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    padding: 20px;
-}
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+      }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
 
-h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-}
+      h1 {
+        text-align: center;
+        color: #6608A4;
+        margin-bottom: 30px;
+      }
 
-.selo {
-    background-color: #fff;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-}
+      /* Grid para os cards de selos */
+      .selo-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 cards por linha */
+        gap: 20px;
+      }
 
-.selo img {
-    border-radius: 8px;
-    margin-right: 20px;
-    max-width: 200px;
-    height: auto;
-}
+      .selo_card {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+      }
 
-.selo h2 {
-    color: #6608A4;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
+      .selo_card:hover {
+        transform: translateY(-5px); /* Efeito de hover */
+      }
 
-.selo p {
-    font-size: 14px;
-    color: #555;
-}
+      .selo_card img {
+        border-radius: 8px;
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+        margin-bottom: 15px;
+      }
 
-.no-selos {
-    text-align: center;
-    color: #777;
-    font-size: 16px;
-    margin-top: 50px;
-}
+      .selo_card h4 {
+        color: #6608A4;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
 
+      .selo_card p {
+        font-size: 14px;
+        color: #555;
+      }
 
     </style>  
   </head>
-  </head>
   <body>
-    <h1>Meus Selos</h1>
-    {% if selos %} {% for selo in selos %}
-    <div>
-      <h2>{{ selo.nome }}</h2>
-      <p>{{ selo.descricao }}</p>
-      {% if selo.imagem %}
-      <img src="{{ selo.imagem.url }}" alt="{{ selo.nome }}" width="200" />
+    <h1>Selos e Conquistas</h1>
+
+      {% if selos %} {% for selo in selos %}
+      <div>
+        <h2>{{ selo.nome }}</h2>
+        <p>{{ selo.descricao }}</p>
+        {% if selo.imagem %}
+        <img src="{{ selo.imagem.url }}" alt="{{ selo.nome }}" width="200" />
+        {% endif %}
+      </div>
+      {% endfor %} {% else %}
+      <p>Você ainda não recebeu nenhum selo.</p>
       {% endif %}
+
+      <div class="selo-container">
+        <div class="selo_card">
+          <img src="/media/selos/poupador_iniciante.png" alt="selo_img">
+          <h4>Iniciante Financeiro</h4>
+          <p>Completar um módulo de educação financeira ou primeira aplicação</p>
+        </div>
+
+        <div class="selo_card">
+          <img src="/media/selos/poupador_iniciante.png" alt="selo_img">
+          <h4>Esforçado Financeiro</h4>
+          <p>Realizar 10 transações para pagar contas e transferencias</p>
+        </div>
+
+        <div class="selo_card">
+          <img src="/media/selos/poupador_iniciante.png" alt="selo_img">
+          <h4>Especialista Financeiro</h4>
+          <p>Completar todos os módulos educacionais</p>
+        </div>
+
+        <div class="selo_card">
+          <img src="/media/selos/poupador_iniciante.png" alt="selo_img">
+          <h4>Poupador Iniciante</h4>
+          <p>Aplicar 5% da renda mensal na poupança ou renda fixa</p>
+        </div>
+
+        <div class="selo_card">
+          <img src="/media/selos/poupador_iniciante.png" alt="selo_img">
+          <h4>Poupador Dedicado</h4>
+          <p>Manter uma poupança com 10% da renda durante 3 meses</p>
+        </div>
+
+        <div class="selo_card">
+          <img src="/media/selos/poupador_iniciante.png" alt="selo_img">
+          <h4>Controlador de Gastos</h4>
+          <p>Criação de orçamento e não ultrapassar as desepesas planejadas por 6 meses</p>
+        </div>
+      </div>
     </div>
-    {% endfor %} {% else %}
-    <p>Você ainda não recebeu nenhum selo.</p>
-    {% endif %}
+
   </body>
 </html>
-
 {% endblock content %}
