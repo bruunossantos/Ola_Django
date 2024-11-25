@@ -32,3 +32,12 @@ def adicionar_despesa(request):
         Despesa.objects.create(descricao=descricao, valor=valor, data=data)
         return redirect('home')
     return render(request, 'orcamento_app/adicionar_despesa.html')  # Caminho ajustado para orcamento_app/
+
+from django.shortcuts import render
+from .models import Receita, Despesa  # Certifique-se de ter modelos para receitas e despesas
+
+def extratos(request):
+    receitas = Receita.objects.all()
+    despesas = Despesa.objects.all()
+    return render(request, 'orcamento_app/extratos.html', {'receitas': receitas, 'despesas': despesas})
+
