@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'primeiro_app',
     'accounts',
+    'gamificacao_app',
 ]
 
 MIDDLEWARE = [

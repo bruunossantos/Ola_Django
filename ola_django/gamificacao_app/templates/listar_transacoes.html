@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista de Transações</title>
+  </head>
+  <body>
+    <h1>Transações</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tipo</th>
+          <th>Valor</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for transacao in transacoes %}
+        <tr>
+          <td>{{ transacao.id }}</td>
+          <td>{{ transacao.tipo }}</td>
+          <td>{{ transacao.valor }}</td>
+          <td>{{ transacao.data|date:"d/m/Y H:i" }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="4">Nenhuma transação encontrada.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
